@@ -11,8 +11,8 @@ from sklearn.datasets import make_blobs
 
 data = pad.read_csv('data/data_banknote_authentication.txt', sep=",")
 #X, y = mglearn.datasets.make_forge()
-X = data[['wordcount','sentimentValue']].values
-y = data['Start Rating'].values
+X = data['V1'].values
+y = data['V2'].values
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 #X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=66)
 training_accuracy = []
