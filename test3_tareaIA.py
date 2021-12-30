@@ -17,8 +17,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
-datos = pd.read_csv('data/data_banknote_authentication.txt', sep=',')
+datos = pd.read_csv('data/data_banknote_authentication.txt', sep=',', header=None)
+datos.columns = ['Varianza','Sesgo','Curtosis','Entropia','Clase']
 datos.hist()
+datos.head()
 plt.show()
 
 X = datos[['Varianza','Sesgo']].values
@@ -30,7 +32,7 @@ scaler = MinMaxScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.fit_transform(X_test)
 
-n_neighbors= 5
+n_neighbors= 9
 
 knn = KNeighborsClassifier(n_neighbors)
 knn.fit(X_train, y_train)
@@ -58,6 +60,9 @@ test_accuracy.append(clf.score(X_test, y_test))
 
 #x_min, x_max = X[:,0].min() - 1, X[:,0].max() + 1
 #y_min, y_max = X[:,0].min() - 1, X[:,0].max() + 1
+
+
+#Acá solo mostramos el mejor valor para K
 
 k_range = range(1, 20)
 scores = []
