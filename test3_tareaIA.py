@@ -21,4 +21,7 @@ from sklearn.metrics import confusion_matrix
 datos = pd.read_csv('data/data_banknote_authentication.txt', sep=',')
 datos.hist()
 plt.show()
+
+X = datos['V1'].values
+y = datos['V5'].values
 # %%
