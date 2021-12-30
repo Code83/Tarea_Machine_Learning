@@ -32,6 +32,7 @@ plt.plot(neighbors_settings, test_accuracy, label="test accuracy")
 plt.ylabel("Precisión")
 plt.xlabel("Vecinos")
 plt.legend()
+print("Test set accuracy: {:.2f}".format(clf.score(X_test, y_test)))
 
 # %%
 
