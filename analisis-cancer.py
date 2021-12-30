@@ -9,7 +9,7 @@ X_train, X_test, y_train, y_test = train_test_split(cancer.data, cancer.target, 
 training_accuracy = []
 test_accuracy = []
 # try n_neighbors from 1 to 10
-neighbors_settings = range(1, 11)
+neighbors_settings = range(1, 20)
 for n_neighbors in neighbors_settings:
   # build the model
   clf = KNeighborsClassifier(n_neighbors=n_neighbors)
