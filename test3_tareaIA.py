@@ -20,10 +20,10 @@ from sklearn.metrics import confusion_matrix
 datos = pd.read_csv('data/data_banknote_authentication.txt', sep=',', header=None)
 datos.columns = ['Varianza','Sesgo','Curtosis','Entropia','Clase']
 datos.hist()
-datos.head()
+datos.head(10)
 plt.show()
 
-X = datos[['Varianza','Sesgo']].values
+X = datos[['Curtosis','Sesgo']].values
 y = datos['Clase'].values
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
@@ -32,7 +32,7 @@ scaler = MinMaxScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.fit_transform(X_test)
 
-n_neighbors= 9
+n_neighbors= 5
 
 knn = KNeighborsClassifier(n_neighbors)
 knn.fit(X_train, y_train)
@@ -72,7 +72,7 @@ for k in k_range:
     knn.fit(X_train, y_train)
     scores.append(knn.score(X_test, y_test))
 plt.figure()
-plt.xlabel('K')
+plt.xlabel('Vecinos K')
 plt.ylabel('Precision')
 plt.scatter(k_range, scores)
 plt.xticks([0,5,10,15,20])    
