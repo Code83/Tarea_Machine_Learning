@@ -32,7 +32,7 @@ scaler = MinMaxScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.fit_transform(X_test)
 
-n_neighbors= 5
+n_neighbors= 20
 
 knn = KNeighborsClassifier(n_neighbors)
 knn.fit(X_train, y_train)
@@ -46,7 +46,7 @@ print(classification_report(y_test, pred))
 #Acá empezamos a graficar por vecino (K)
 training_accuracy = []
 test_accuracy = []
-h = .02 # tamaño de la muestra
+#h = .02 # tamaño de la muestra
 
 #Instancia de vecinos para clasificar  y el tamaño de la muestra
 
@@ -56,13 +56,7 @@ clf.fit(X, y)
 training_accuracy.append(clf.score(X_train, y_train))
 test_accuracy.append(clf.score(X_test, y_test))
 
-#Punto de unión 
-
-#x_min, x_max = X[:,0].min() - 1, X[:,0].max() + 1
-#y_min, y_max = X[:,0].min() - 1, X[:,0].max() + 1
-
-
-#Acá solo mostramos el mejor valor para K
+#Acá mostramos el mejor valor para K
 
 k_range = range(1, 20)
 scores = []
