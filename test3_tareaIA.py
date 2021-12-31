@@ -5,8 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 import matplotlib.patches as mpatches
-
-#import seaborn as sb
+import seaborn as sb
 
 plt.rcParams['figure.figsize'] = (16 ,9)
 plt.style.use('ggplot')
@@ -22,8 +21,9 @@ datos.columns = ['Varianza','Sesgo','Curtosis','Entropia','Clase']
 datos.hist()
 datos.head(10)
 plt.show()
+sb.pairplot(datos)
 
-X = datos[['Curtosis','Sesgo']].values
+X = datos[['Sesgo','Curtosis']].values
 y = datos['Clase'].values
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
