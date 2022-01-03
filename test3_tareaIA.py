@@ -3,8 +3,6 @@ from os import sep
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-#from matplotlib.colors import ListedColormap
-#import matplotlib.patches as mpatches
 import seaborn as sb
 
 plt.rcParams['figure.figsize'] = (16 ,9)
@@ -26,7 +24,7 @@ datos.hist()
 plt.show()
 sb.pairplot(datos)
 
-#Datos que utilizaremos para entrenar el modelo:
+#Datos que utilizaremos para entrenar el modelo binario:
 X = datos[['Sesgo','Curtosis']].values
 y = datos['Clase'].values
 
@@ -50,9 +48,8 @@ print(classification_report(y_test, pred))
 #Acá empezamos a graficar por vecino (K)
 training_accuracy = []
 test_accuracy = []
-#h = .02 # tamaño de la muestra
 
-#Instancia de vecinos para clasificar  y el tamaño de la muestra
+#Instancia de vecinos para clasificar y el tamaño de la muestra
 
 clf = KNeighborsClassifier(n_neighbors, weights='distance')
 clf.fit(X, y)
