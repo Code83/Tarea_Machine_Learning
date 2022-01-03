@@ -34,6 +34,7 @@ scaler = MinMaxScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.fit_transform(X_test)
 
+#Cantidad de vecinos
 n_neighbors= 21
 
 knn = KNeighborsClassifier(n_neighbors)
@@ -57,7 +58,7 @@ clf.fit(X, y)
 training_accuracy.append(clf.score(X_train, y_train))
 test_accuracy.append(clf.score(X_test, y_test))
 
-#Acá mostramos el mejor valor para K
+#Acá mostramos el mejor valor para K hasta 30
 
 k_range = range(1, 30)
 scores = []
