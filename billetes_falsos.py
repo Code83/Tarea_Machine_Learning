@@ -22,7 +22,7 @@ X_train, X_test, y_train, y_test = train_test_split(x, y)
 training_accuracy = []
 test_accuracy = []
 
-neighbors_settings = range(1, 20)
+neighbors_settings = range(1, 150)
 for n_neighbors in neighbors_settings:
   # build the model
   clf = KNeighborsClassifier(n_neighbors=n_neighbors)
